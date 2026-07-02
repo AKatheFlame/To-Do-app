@@ -1,0 +1,7 @@
+prepare
+clean
+eat
+buy milk
+complete the code
+bring coffee
+drink water
