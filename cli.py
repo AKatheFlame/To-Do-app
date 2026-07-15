@@ -2,65 +2,65 @@
 import functions
 import time
 
-now=time.strftime("%b %d, %Y %H:%M:%S")
+now = time.strftime("%b %d, %Y %H:%M:%S")
 print("the time is below:")
 print("It is", now)
 
 while True:
-    user_prompt="Type add , show ,edit, complete or exit: "
-    choice=input(user_prompt).lower().strip()
+    user_prompt = "Type add , show ,edit, complete or exit: "
+    choice = input(user_prompt).lower().strip()
 
-    if choice.startswith('add'):
-        todo=choice[4:]
+    if choice.startswith("add"):
+        todo = choice[4:]
 
-        todos=functions.get_todos()
+        todos = functions.get_todos()
 
-        todos.append(todo+ '\n')
+        todos.append(todo + "\n")
 
-        functions.write_todos(todos, 'todos.txt' )
+        functions.write_todos(todos, "todos.txt")
 
-    elif choice.startswith('show'):
-        todos=functions.get_todos()
-        new_todo=[i.strip('\n') for i in todos]
-        for index,i in enumerate(new_todo):
-            i=i.capitalize()
+    elif choice.startswith("show"):
+        todos = functions.get_todos()
+        new_todo = [i.strip("\n") for i in todos]
+        for index, i in enumerate(new_todo):
+            i = i.capitalize()
             print(f"{index+1}.{i}")
 
-    elif choice.startswith('edit'):
+    elif choice.startswith("edit"):
         try:
-            n=int(choice[5:])
-            n-=1
-            todos=functions.get_todos()
+            n = int(choice[5:])
+            n -= 1
+            todos = functions.get_todos()
 
-            new_todo=input("Enter new todo: ") +'\n'
-            todos[n]=new_todo + '\n'
+            new_todo = input("Enter new todo: ") + "\n"
+            todos[n] = new_todo + "\n"
 
-            functions.write_todos(todos, 'todos.txt')
-        
+            functions.write_todos(todos, "todos.txt")
+
         except ValueError:
             print("Your command is not valid")
             continue
 
-    elif choice.startswith('complete'):
+    elif choice.startswith("complete"):
         try:
-            num=int(choice[9:])
-            todos=functions.get_todos()
-            index=num-1
-            removed=todos[index].strip('\n')
+            num = int(choice[9:])
+            todos = functions.get_todos()
+            index = num - 1
+            removed = todos[index].strip("\n")
             todos.pop(index)
 
-            functions.write_todos(todos, 'todos.txt')
-            
-            message=f"Todo {removed} was removed from the list."
+            functions.write_todos(todos, "todos.txt")
+
+            message = f"Todo {removed} was removed from the list."
             print(message)
-        
+
         except IndexError:
             print("There is no item with that number.")
             continue
 
-    elif choice.startswith('exit'):
+    elif choice.startswith("exit"):
         break
-    
+
     else:
         print("Invalid choice.")
 
