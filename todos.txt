@@ -1,7 +1,5 @@
 prepare
 clean
 Finish eating
-buy milk
 bring coffee
-drink water
 Bath properly
