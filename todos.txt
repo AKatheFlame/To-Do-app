@@ -1,5 +1,5 @@
-prepare
 clean
 Finish eating
 bring coffee
 Bath properly
+Clean the bag
